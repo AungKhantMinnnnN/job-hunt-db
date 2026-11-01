@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: job-hunt-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: jobs
+      POSTGRES_PASSWORD: jobs # ponytail: local-only, bound to 127.0.0.1 below
+      POSTGRES_DB: jobs
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+
+volumes:
+  data:

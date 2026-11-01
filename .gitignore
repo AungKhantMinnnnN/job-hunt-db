@@ -1,0 +1,8 @@
+# Personal data: never commit
+cvs/*
+!cvs/base-cv.example.html
+applicant.md
+*.csv
+hook.log
+.DS_Store
+.claude/settings.local.json
